@@ -1,9 +1,9 @@
-##Programmation Avancée - NFP 121
+## Programmation Avancée - NFP 121
 
-###Projet Nombre de chemins 
+### Projet Nombre de chemins 
 
-####Instructions
-Je vous invite à compléter le <a href="https://www.codingame.com/ide/puzzle/number-of-paths-between-2-points">puzzle suivant</a>.
+#### Instructions
+Compléter le <a href="https://www.codingame.com/ide/puzzle/number-of-paths-between-2-points">puzzle suivant</a>.
 
 * Déposez un pdf avec :
 <br> - votre nom
