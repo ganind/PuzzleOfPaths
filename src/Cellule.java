@@ -8,9 +8,22 @@ public class Cellule {
         this.valeur = valeur;
         this.ligne = ligne;
         this.colonne = colonne;
-
     }
 
+    public char getValeur() {
+        return valeur;
+    }
+
+    public int getLigne(){
+        return ligne;
+    }
+
+    public int getColonne() {
+        return colonne;
+    }
+
+
+    // affichage pour la phase de test... inutile après
     @Override
     public String toString() {
         return "Cellule{" +
