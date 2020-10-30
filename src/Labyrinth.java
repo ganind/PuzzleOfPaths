@@ -5,7 +5,6 @@ public class Labyrinth {
     //champs de l'objet Labyrinth
     private int nbLignes;
     private int nbColonnes;
-    //private String row;
     private Cellule matrixCellule[][];  //matrice du type cellule
 
     // Constructeur : construir un nouveau objet matrixCellule de type matrice de cellules
@@ -13,14 +12,12 @@ public class Labyrinth {
         //System.out.println(row);
         this.nbLignes = nbLignes;
         this.nbColonnes = nbColonnes;
-        //this.row = row;
         matrixCellule = new Cellule[nbLignes][nbColonnes]; //réserver l'espace en mémoire
         int index = 0;
 
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
                 matrixCellule[i][j] = new Cellule(row.charAt(index++), i, j) ; // Iterate over characters of a String
-                //System.out.println(matrixCellule[i][j].toString()); //matrixCellule[][] est une instruction qui va récuperer une célule à une adresse donnée
             }
         }
     }
@@ -30,49 +27,63 @@ public class Labyrinth {
     public void pathFinder() {
         Cellule celluleCourrente = matrixCellule[0][0]; //cellule de départ
         ArrayList chemin = new ArrayList<Cellule>(); //ArrayList = tableau de taille dynamique
+        int compteur = 0;
 
-        celluleCourrente = prochaineCellule(celluleCourrente);
+        chemin = prochaineCellule(celluleCourrente, chemin);
+        for (int i = 0; i < chemin.size(); i++) {
+            Cellule cell = (Cellule) chemin.get(i); //cast
+            if (cell.getLigne() == nbLignes -1 && cell.getColonne() == nbColonnes - 1) {
+                compteur++;
+            }
+        }
+        System.out.println(chemin);
+        System.out.println(compteur);
+
 
     }
 
     // recherche de la prochaine cellule de la matrice
-    public Cellule prochaineCellule(Cellule uneCellule){
+    public ArrayList<Cellule> prochaineCellule(Cellule uneCellule, ArrayList chemin){
 
         Cellule nextCellule;
         System.out.println(uneCellule.toString());
+        chemin.add(uneCellule);
 
         if (uneCellule.getLigne() == nbLignes -1 && uneCellule.getColonne() == nbColonnes - 1) {
-            return null;
+            return chemin;
         }
 
         if (uneCellule.getColonne() == nbColonnes-1) {
             nextCellule = matrixCellule[uneCellule.getLigne()+1][uneCellule.getColonne()];
             if (nextCellule.getValeur() == '0') {
-                return prochaineCellule(nextCellule);
+                 prochaineCellule(nextCellule, chemin);
             } else {
-                return null;
+                return chemin;
             }
-        }
+        } else
 
         if (uneCellule.getLigne() == nbLignes-1) {
             nextCellule = matrixCellule[uneCellule.getLigne()][uneCellule.getColonne()+1];
             if (nextCellule.getValeur() == '0') {
-                return prochaineCellule(nextCellule);
+                prochaineCellule(nextCellule, chemin);
             } else {
-                return null;
+                return chemin;
             }
-        }
-
-        nextCellule = matrixCellule[uneCellule.getLigne()][uneCellule.getColonne() + 1];
-        if (nextCellule.getValeur() == '0') {
-            return prochaineCellule(nextCellule);
         } else {
-            nextCellule = matrixCellule[uneCellule.getLigne() +1][uneCellule.getColonne()];
+
+            nextCellule = matrixCellule[uneCellule.getLigne()][uneCellule.getColonne() + 1];
             if (nextCellule.getValeur() == '0') {
-                return prochaineCellule(nextCellule);
+                prochaineCellule(nextCellule, chemin);
+            }
+
+            nextCellule = matrixCellule[uneCellule.getLigne() + 1][uneCellule.getColonne()];
+
+            if (nextCellule.getValeur() == '0') {
+                prochaineCellule(nextCellule, chemin);
             } else {
-                return null;
+                return chemin;
             }
         }
+        return chemin;
     }
 }
