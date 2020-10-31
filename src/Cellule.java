@@ -22,9 +22,8 @@ public class Cellule {
         return colonne;
     }
 
-
-    // affichage pour la phase de test... inutile après
-    @Override
+    // affichage pour la phase de test
+    /* @Override
     public String toString() {
         return "Cellule{" +
                 "valeur=" + valeur +
@@ -32,4 +31,5 @@ public class Cellule {
                 ", colonne=" + colonne +
                 '}';
     }
+     */
 }

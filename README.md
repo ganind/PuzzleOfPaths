@@ -3,19 +3,22 @@
 ### Projet Nombre de chemins 
 
 #### Instructions
-Compléter le <a href="https://www.codingame.com/ide/puzzle/number-of-paths-between-2-points">puzzle suivant</a>.
 
-* Déposez un pdf avec :
-<br> - votre nom
-<br> -  votre pseudo sur codingame
-<br> - l'adresse du dépôt github
-<br> -  votre code
-<br> - Si le cours est en présentiel, venez avec une version imprimée.
+Given a two dimensional array representing a map, find the total number of paths between two opposite points (0,0) and (N-1,M-1). You can only move from left to right and from top to bottom. Value 0 means that you are free to go on a cell, value 1 is a non reachable cell.
 
-* Pour optimiser votre note, vous devrez : 
-<br> - implémenter votre algorithme en Java
-<br> -  passer 100% des tests de validation
-<br> -  indenter proprement votre code
-<br> - faire des petits sous-programmes, au plus 20 lignes
-<br> - ne pas mettre plus de 3 niveaux d'imbrication dans une fonction
-<br> - etc.
+* Entrée
+
+Line 1 : An int M for the number of rows. <br>
+Line 2 : An int N for the number of cols. <br>
+M next lines: ROW A String representing the values of the cells of the row : 0 for an empty cell or 1 for a wall.
+
+* Sortie
+
+Line 1 : An int representing the number of paths between the two opposite points of the map.
+
+* Contraintes
+
+1 ≤ M ≤ 10 <br>
+1 ≤ N ≤ 10
+
+Source : <a href="https://www.codingame.com/ide/puzzle/number-of-paths-between-2-points">Condingame</a>.

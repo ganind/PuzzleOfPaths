@@ -19,17 +19,18 @@ public class Solution {
         if (in.hasNextLine()) {
             in.nextLine();
         }
-        String ROW = ""; //résoudre probleme de manque de visibilité en dehors de la boucle for
+
+        String ROW = ""; //résoudre problème de manque de visibilité en dehors de la boucle for
+
         for (int i = 0; i < M; i++) {
             if (i == 0) {
                 ROW = in.nextLine();
             } else {
-                ROW = ROW + in.nextLine(); //concatenation pour éviter d'ecraser la premiere saisie
+                ROW = ROW + in.nextLine(); //concatenation pour éviter d'ecraser la première saisie
             }
         }
 
         Labyrinth matrix = new Labyrinth(M, N, ROW);
         matrix.pathFinder();
-
     }
 }
